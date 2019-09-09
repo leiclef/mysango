@@ -1,0 +1,68 @@
+$mainFont: "Helvetica", "Arial", "BIZ UDGothic", "Hiragino Kaku Gothic ProN", "Hiragino Sans", YuGothic, "Yu Gothic", "メイリオ", Meiryo, sans-serif;
+$subFont: "Quicksand", "Avenir", "Arial", "BIZ UDGothic", "Hiragino Kaku Gothic ProN", YuGothic, "Yu Gothic", "Hiragino Sans", "ヒラギノ角ゴシック", "メイリオ", Meiryo, sans-serif;
+
+// Font Awesome 5 Free
+@mixin awesomeFree($opacity: 1.0, $padding-right: 0) {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: $cw0;
+    opacity: $opacity;
+    padding-right: $padding-right;
+}
+
+// Font Awesome Brands
+@mixin awesomeBrands() {
+  font-family: "Font Awesome 5 Brands";
+  color: $cw0;
+  font-size: 33px; 
+}
+
+/* white-type-color */
+$cw0: #fff;
+$cw1: #eaedf2;
+$cw3: #eaeaea;
+$cw4: #d5d5d5;
+$cw5: #efefef;
+$cw6: #f3f3f3;
+$cw7: #e0e4eb;
+$cw8: #c0c0c0;
+$cw9: #b7b7b7;
+
+/* black-type-color */
+$ck1: #252525;
+$ck2: #a7a7a7;
+$ck3: #555;
+$ck4: #999;
+$ck5: #919191;
+$ck6: #9a9a9a;
+$ck7: #626262;
+$ck8: #3c3c3c;
+
+/* blue-type-color */
+$cb1: #58a9ef;
+$cb2: #93d1f0;
+$cb3: #5ba9f7;
+$cb4: #67b8ff;
+$cb5: #3ab4ff;
+$cb6: #0470dc;
+$cb7: #3b8df7;
+$cb8: #c8e4ff;
+$cb9: #4f96f6;
+
+/* other-type-color */
+$co1: #bdb9ff;
+$co2: #ffb36b;
+$co3: #5c6b80;
+$co4: #3b5998;
+$co5: #72d865;
+$co6: #459522;
+
+/* alpha-type-color */ 
+$al1: rgba(0, 0, 0, 0.15);
+$al2: rgba(0, 0, 0, 0.1);
+$al3: rgba(0, 0, 0, 0.15);
+$al4: rgba(0, 0, 0, 0.12);
+$al5: rgba(0, 0, 0, 0.22);
+$al6: rgba(0, 0, 0, 0.3);
+$al7: rgba(234, 237, 242, 0.7);
+$al8: rgba(91, 196, 247, 0.3);
