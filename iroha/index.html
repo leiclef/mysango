@@ -11,227 +11,229 @@
 <body>
   <header>
     <div class="top-menu">
-      <h1 class="top-logo">
-        <img src="img/logo.svg" alt="">
-      </h1>
-      <nav>
-        <ul>
-          <li><a href="#">About iroha<span>-いろはのこと-</span></a></li>
-          <li><a href="#">Lodge<span>-宿泊ロッジ-</span></a></li>
-          <li><a href="#">Food Atelier & Lounge<span>-食工房/ラウンジ-</span></a></li>
-          <li><a href="#">Interactive Program<span>-体験プログラム-</span></a></li>
-          <li><a href="#">Booking<span>-ご予約-</span></a></li>
-        </ul>
-        <div class="sns-button header-sns">
-          <a href="#" class="facebook">
-            <i class="fab fa-facebook-square fa-fw"></i>
-          </a>
-          <a href="#" class="instagram">
-            <i class="fab fa-instagram fa-fw"></i>
-          </a>
-        </div>
-    </div>
-        </div>
-      </nav>
-      <div id="nav-trigger">
-        <a href="#" class="menu-trigger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </a>
+      <div class="top-menu-wrap">
+        <h1 class="top-logo">
+          <img src="img/logo.svg" alt="">
+        </h1>
+        <button class="menu-btn" id="nav-trigger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+      <div id="nav-contents">
+        <nav>
+          <ul>
+            <li><a href="#">About iroha<span>-いろはのこと-</span></a></li>
+            <li><a href="#">Lodge<span>-宿泊ロッジ-</span></a></li>
+            <li><a href="#">Food Atelier & Lounge<span>-食工房/ラウンジ-</span></a></li>
+            <li><a href="#">Interactive Program<span>-体験プログラム-</span></a></li>
+            <li><a href="#">Booking<span>-ご予約-</span></a></li>
+            <li class="sns-button header-sns">
+              <a href="#" class="facebook">
+                <i class="fab fa-facebook-square fa-fw"></i>
+              </a>
+              <a href="#" class="instagram">
+                <i class="fab fa-instagram fa-fw"></i>
+              </a>
+            </li>
+          </ul>
+        </nav>
       </div>
     </div>
     <!-- MainVisual -->
-    <div class="main-visual" id="back-image">
-      <div class="main-image">
-        <img src="img/nav-pc-1.jpg" id="main-image-item1" alt="">
-        <img src="img/nav-pc-2.jpg" id="main-image-item2" alt="">
-        <img src="img/nav-pc-3.jpg" id="main-image-item3" alt="">
-        <img src="img/nav-pc-4.jpg" id="main-image-item4" alt="">
-        <img src="img/nav-pc-5.jpg" id="main-image-item5" alt="">
+    <div class="main-visual-container">
+      <div class="main-visual">
+        <div class="main-image-sp" id="sp-slide">
+          <img src="img/nav-pc-1.jpg" id="main-image-item11" alt="">
+          <img src="img/nav-pc-2.jpg" id="main-image-item12" style="display: none;" alt="">
+          <img src="img/nav-pc-3.jpg" id="main-image-item13" style="display: none;" alt="">
+          <img src="img/nav-pc-4.jpg" id="main-image-item14" style="display: none;" alt="">
+          <img src="img/nav-pc-5.jpg" id="main-image-item15" style="display: none;" alt="">
+        </div>
+        <div class="main-image-xs" id="xs-slide">
+          <img src="img/nav-xs-1.png" id="main-image-item21" alt="">
+          <img src="img/nav-xs-2.png" id="main-image-item22" style="display: none;" alt="">
+          <img src="img/nav-xs-3.png" id="main-image-item23" style="display: none;" alt="">
+          <img src="img/nav-xs-4.png" id="main-image-item24" style="display: none;" alt="">
+        </div>
+        <div class="main-logo">
+            <img src="img/logo-white.png" alt="">
+        </div>
       </div>
-    </div>
-    <div class="main-visual-sp" id="back-image">
-      <div class="main-image">
-        <img src="img/nav-xs-1.png" id="main-image-item11" alt="">
-        <img src="img/nav-xs-2.png" id="main-image-item12" alt="">
-        <img src="img/nav-xs-3.png" id="main-image-item13" alt="">
-        <img src="img/nav-xs-4.png" id="main-image-item14" alt="">
-      </div>
-    </div>
-    <div class="main-logo">
-        <img src="img/logo-white.png" alt="">
     </div>
   </header>
   <main>
     <!-- About iroha -->
     <section class="about">
-      <div class="back-color"></div>
       <div class="description">
         <h2 class="about-section-title">「stay iroha as live」</h2>
-        <p>テキストテキストテキスト<br>
-        屋久島の地で、、、いろはで、感じて欲しいこと。</p>
-        <p>作っていきたい空間。<br>
-        丸さんたちの想い。<br>
-        暮らしの体験宿、いろは</p>
-        <p>English version About iroha</p>
-        <p>yakushima nature.</p>
-        <p>Onoaida.iroha maru</p>
+        <div class="dc-1">
+          <p>テキストテキストテキスト</p>
+          <p>屋久島の地で、、、いろはで、感じて欲しいこと。</p>
+          <p>作っていきたい空間。</p>
+        </div>
+        <div class="dc-2">
+          <p>丸さんたちの想い。</p>
+          <p>暮らしの体験宿、いろは</p>
+        </div>
+        <div class="dc-3">
+          <p>English version About iroha</p>
+        </div>
+        <div class="dc-4">
+          <p>English version About iroha</p>
+          <p>yakushima nature.</p>
+          <p>Onoaida.iroha maru</p>
+        </div>
         <div class="btn-wrap">
           <a href="#" class="button">Read more</a>
         </div>
       </div>
-      <div class="img-photo">
-          <img src="img/concept-photo-1.jpg" id="about-main-img" alt="">
-          <img src="img/concept-photo-2.jpg" id="about-sub-img" alt="">
+      <div class="img-wrap">
+        <div class="img-photo about-main-img">
+          <img src="img/concept-photo-1.jpg" alt="">
+        </div>
+        <div class="img-photo about-sub-img">
+          <img src="img/concept-photo-2.jpg" alt="">
+        </div>
       </div>
+      <div class="back-color"></div>
     </section>
     <!-- Lodge -->
     <section class="lodge Contents">
-      <div class="section-title">
-        <h2 class="lodge-title">Lodge</h2>
+      <div class="section-title lodge-title">
+        <img src="img/Lodge.svg" alt="">
         <h3>Lodge -宿泊ロッジ-</h3>
       </div>
       <div class="section-container">
-        <div class="section-container-wrap">
-          <article class="description">
-            <p>豊かな暮らしの体験宿 自然の中の貸切ロッジ。<br>
-            海の音、鳥の声、樹々に囲まれて自然のなかでゆったりと、<br>
-            屋久島の暮らしを体験できる宿です。<br>
-            定員は５名で、ベッドは３台、布団を２枚敷くことができます。<br>
-            <br>
-            English version About Lodge, stay plan</p>
-            <div class="btn-wrap">
-              <a href="#" class="button">Read more</a>
-            </div>
-          </article>
-          <div class="img-photo">
-            <img src="img/lodge-photo-1.jpg" alt="">
+        <article class="description">
+          <p>豊かな暮らしの体験宿 自然の中の貸切ロッジ。</p>
+          <p>海の音、鳥の声、樹々に囲まれて自然のなかでゆったりと、</p>
+          <p>屋久島の暮らしを体験できる宿です。</p>
+          <p>定員は５名で、ベッドは３台、布団を２枚敷くことができます。</p>
+          <p>English version About Lodge, stay plan</p>
+          <div class="btn-wrap">
+            <a href="#" class="button">Read more</a>
           </div>
+        </article>
+        <div class="img-photo">
+          <img src="img/lodge-photo-1.jpg" alt="">
         </div>
-        <div class="photo-items">
-          <img src="img/lodge-photo-2.jpg" alt="">
-          <img src="img/lodge-photo-3.jpg" alt="">
-          <img src="img/lodge-photo-4.jpg" alt="">
-          <img src="img/lodge-photo-5.jpg" alt="">
-          <img src="img/lodge-photo-6.jpg" alt="">
-        </div>
+      </div>
+      <div class="photo-items">
+        <img src="img/lodge-photo-2.jpg" alt="">
+        <img src="img/lodge-photo-3.jpg" alt="">
+        <img src="img/lodge-photo-4.jpg" alt="">
+        <img src="img/lodge-photo-5.jpg" alt="">
+        <img src="img/lodge-photo-6.jpg" alt="">
       </div>
     </section>
     <!-- Food Atelier & Lounge -->
     <section class="food-atelier Contents">
-      <div class="section-title">
-        <h2 class="food-title">Food Atelier& Lounge</h2>
+      <div class="section-title food-title">
+        <img src="img/Food.svg" alt="">
         <h3>Food Atelier& Lounge</h3>
       </div>
-      <div class="section-container">
-        <div class="reverse-container-wrap">
-          <article class="description">
-            <p>豊かな暮らしの体験宿 自然の中の貸切ロッジ。<br>
-              海の音、鳥の声、樹々に囲まれて自然のなかでゆったりと、<br>
-              屋久島の暮らしを体験できる宿です。<br>
-              定員は５名で、ベッドは３台、布団を２枚敷くことができます。<br>
-              <br>
-              English version About Lodge, stay plan</p>
-            <div class="btn-wrap">
-              <a href="#" class="button">Read more</a>
-            </div>
-          </article>
-          <div class="img-photo">
-            <img src="img/food-photo-1.jpg" alt="">
+      <div class="section-container-reverse">
+        <article class="description">
+          <p>豊かな暮らしの体験宿 自然の中の貸切ロッジ。</p>
+          <p>海の音、鳥の声、樹々に囲まれて自然のなかでゆったりと、</p>
+          <p>屋久島の暮らしを体験できる宿です。</p>
+          <p>定員は５名で、ベッドは３台、布団を２枚敷くことができます。</p>
+          <p>English version About Lodge, stay plan</p>
+          <div class="btn-wrap">
+            <a href="#" class="button">Read more</a>
           </div>
+        </article>
+        <div class="img-photo">
+          <img src="img/food-photo-1.jpg" alt="">
         </div>
-        <div class="photo-items">
-          <img src="img/food-photo-2.jpg" alt="">
-          <img src="img/food-photo-3.jpg" alt="">
-          <img src="img/food-photo-4.jpg" alt="">
-          <img src="img/food-photo-5.jpg" alt="">
-          <img src="img/food-photo-6.jpg" alt="">
-        </div>
+      </div>
+      <div class="photo-items">
+        <img src="img/food-photo-2.jpg" alt="">
+        <img src="img/food-photo-3.jpg" alt="">
+        <img src="img/food-photo-4.jpg" alt="">
+        <img src="img/food-photo-5.jpg" alt="">
+        <img src="img/food-photo-6.jpg" alt="">
       </div>
     </section>
     <!-- Interactive Program -->
     <section class="interactive Contents">
-      <div class="section-title">
-        <h2 class="interactive-title">Interactive</h2>
+      <div class="section-title interactive-title">
+        <img src="img/Interactive.svg" alt="">
         <h3>Interactive Program</h3>
       </div>
       <div class="section-container">
-        <div class="section-container-wrap">
-          <article class="description">
-            <p>豊かな暮らしの体験宿 自然の中の貸切ロッジ。<br>
-              海の音、鳥の声、樹々に囲まれて自然のなかでゆったりと、<br>
-              屋久島の暮らしを体験できる宿です。<br>
-              定員は５名で、ベッドは３台、布団を２枚敷くことができます。<br>
-              <br>
-              English version About Lodge, stay plan</p>
-              <div class="btn-wrap">
-                <a href="#" class="button">Read more</a>
-              </div>
-          </article>
-          <div class="img-photo">
-            <img src="img/interactive-photo-1.jpg" alt="">
+        <article class="description">
+          <p>豊かな暮らしの体験宿 自然の中の貸切ロッジ。</p>
+          <p>海の音、鳥の声、樹々に囲まれて自然のなかでゆったりと、</p>
+          <p>屋久島の暮らしを体験できる宿です。</p>
+          <p>定員は５名で、ベッドは３台、布団を２枚敷くことができます。</p>
+          <p>English version About Lodge, stay plan</p>
+          <div class="btn-wrap">
+            <a href="#" class="button">Read more</a>
           </div>
+        </article>
+        <div class="img-photo">
+          <img src="img/interactive-photo-1.jpg" alt="">
         </div>
-        <div class="photo-items">
-          <img src="img/interactive-photo-2.jpg" alt="">
-          <img src="img/interactive-photo-3.jpg" alt="">
-          <img src="img/interactive-photo-4.jpg" alt="">
-          <img src="img/interactive-photo-5.jpg" alt="">
-          <img src="img/interactive-photo-6.jpg" alt="">
-        </div>
+      </div>
+      <div class="photo-items">
+        <img src="img/interactive-photo-2.jpg" alt="">
+        <img src="img/interactive-photo-3.jpg" alt="">
+        <img src="img/interactive-photo-4.jpg" alt="">
+        <img src="img/interactive-photo-5.jpg" alt="">
+        <img src="img/interactive-photo-6.jpg" alt="">
       </div>
     </section>
     <!-- Booking -->
     <section class="booking">
       <article class="description">
-        <p>豊かな暮らしの体験宿 自然の中の貸切ロッジ。<br>
-        海の音、鳥の声、樹々に囲まれて自然のなかでゆったりと、<br>
-        屋久島の暮らしを体験できる宿です。<br>
+        <p>豊かな暮らしの体験宿 自然の中の貸切ロッジ。</p>
+        <p>海の音、鳥の声、樹々に囲まれて自然のなかでゆったりと、</p>
+        <p>屋久島の暮らしを体験できる宿です。</p>
         <br>
-        豊かな暮らしのひと時を、お過ごしください。<br>
+        <p>豊かな暮らしのひと時を、お過ごしください。</p>
         <br>
-        お待ちしております。</p>
+        <p>お待ちしております。</p>
       </article>
       <div class="booking-section">
-        <section class="booking booking-pc">
+        <section class="booking-sp">
           <h4 class="booking-section-title">Contact -お問い合わせ-</h4>
-          <div class="description booking-dc">
-            <p>アクセスやお問い合わせはこちらのページから。<br>
-              お気軽にご連絡ください。</p>
-            <p>Contact here</p>
+          <p>アクセスやお問い合わせはこちらのページから。</p>
+          <p>お気軽にご連絡ください。</p>
+          <p>Contact here</p>
+          <div class="booking-btn-wrap">
             <a href="#" class="button booking-btn">Contact</a>
           </div>
         </section>
-        <section class="booking">
+        <section class="booking-sp">
           <h4 class="booking-section-title">Booking -ご予約-</h4>
-          <div class="description booking-dc">
-            <p>アクセスやお問い合わせはこちらのページから。<br>
-            お気軽にご連絡ください。</p>
-            <p>Contact here</p>
+          <p>アクセスやお問い合わせはこちらのページから。</p>
+          <p>お気軽にご連絡ください。</p>
+          <p>Contact here</p>
+          <div class="booking-btn-wrap">
             <a href="#" class="button booking-btn">Booking</a>
           </div>
         </section>  
-        <section class="booking-sp">
+        <section class="booking-xs">
           <h4 class="booking-section-title">Contact<br>-お問い合わせ/ご予約-</h4>
-          <div class="description booking-dc">
-            <p>アクセスやお問い合わせはこちらのページから。<br>
-            お気軽にご連絡ください。</p>
-            <p>Contact here</p>
-            <a href="#" class="button booking-btn">Contact -お問い合わせ-</a>
-            <a href="#" class="button booking-btn">Booking -ご予約-</a>
-          </div>
+          <p>アクセスやお問い合わせはこちらのページから。</p>
+          <p>お気軽にご連絡ください。</p>
+          <p>Contact here</p>
+          <a href="#" class="button booking-btn">Contact -お問い合わせ-</a>
+          <a href="#" class="button booking-btn">Booking -ご予約-</a>
         </section>  
       </div>
     </section>
   </main>
   <footer>
     <div class="up-footer">
-      <div class="logo">
+      <div class="footer-logo">
         <img src="img/logo-white.png" alt="暮らしの体験宿いろは">
       </div>
       <section class="footer-about">
-        <h5 class="section-title">いろは</h5>
+        <h5 class="footer-section-title">いろは</h5>
         <div class="footer-description">
           <p>
             ここにも、<br>
@@ -242,13 +244,12 @@
         </div>
       </section>
       <section class="footer-contact">
-        <h5 class="section-title">Contact</h5>
+        <h5 class="footer-section-title">Contact</h5>
         <div class="footer-description">
-          <p>
-            〒891-4407 <br>
-            鹿児島県熊毛郡屋久島町湯泊211-53 <br>  
-            TEL:080-3187-8533 <br>
-            e-mail: iroha.yakushima108@gmail.con
+          <p>〒891-4407 </p>
+          <p>鹿児島県熊毛郡屋久島町湯泊211-53</p>
+          <p>TEL:080-3187-8533</p>
+          <p>e-mail: iroha.yakushima108@gmail.con</p>
           </p>
         </div>
         <div class="sns-button">
@@ -262,9 +263,9 @@
       </section>
     </div>
     <div class="low-footer">
-      <p class="pc-copy">Copyright&copy暮らしの体験宿　いろは</p>
-      <p class="sp-copy">Copyright&copy 2019 Lodge&Food Atelier iroha. <br>
-      All Rights Reserved</p>
+      <p class="sp-copy">Copyright&copy暮らしの体験宿　いろは</p>
+      <p class="xs-copy">Copyright&copy 2019 Lodge&Food Atelier iroha. </p>
+      <p class="xs-copy">All Rights Reserved</p>
     </div>    
   </footer>
   <script type="text/javascript" src="js/script.js"></script>
