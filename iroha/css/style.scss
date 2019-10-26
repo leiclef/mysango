@@ -1,16 +1,21 @@
 @import "_parameters.scss";
 
-$widthPC: 960px; //PC
-$widthTab: 560px; //タブレット
-$widthSP: 320px; //スマホ
+$widthTab: 769px; //タブレット
+$widthSP: 561px; //スマホ
+$widthXs: 411px;	//iphone
 
+@mixin PC {
+  @media screen and (min-width: ($widthTab)) {
+    @content;
+  }
+}
 @mixin Tab {
-  @media screen and (max-width: ($widthPC)) {
+  @media screen and (min-width: ($widthSP)) {
     @content;
   }
 }
 @mixin SP {
-  @media screen and (max-width: ($widthTab)) {
+  @media screen and (min-width: ($widthXs)) {
     @content;
   }
 }
@@ -25,7 +30,9 @@ body {
 	font-weight: normal;
   line-height: 1.3;
 	letter-spacing: 0.1em;
-	font-size: calc(100vw / 120);
+	font-size: calc(100vw / 41);
+	@include SP {font-size: calc((100vw/76)*0.9);};
+	@include Tab {font-size: calc((100vw/102)*0.9);};
 	display: block;
 	color: $black2;
 }
@@ -34,8 +41,16 @@ header,main,footer,div, section {
 	display: block;
 }
 
-p, span {
+p {
 	cursor: default;
+	font-size: 1.5em;
+	margin:1em;
+}
+
+span {
+	display: block;
+	cursor: default;
+	font-size: 1.2em;
 }
 
 ul, li {
@@ -54,7 +69,7 @@ a {
 
 i {
 	color: inherit;
-	font-size: 1.67em;
+	font-size: 4em;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -64,23 +79,23 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h2 {
-	font-size:2.78em;
-	opacity: 0.1;
+	font-size:2.2em;
+	text-shadow: 3px 3px 2px $black5;
 }
 
 
 h3 {
-	font-size: 3.33em;
-	@include SP{font-size: 25px;};
+	font-size: 2.5em;
+	text-shadow: 3px 3px 2px $black5;
 	display: inline-block;
 	position: relative;
 	&::before {
 		content: '';
 		position: absolute;
-		left: 50%;
-		bottom: -5%;
+		left: 8em;
+		bottom: -0.5em;
 		display: inline-block;
-		width: 40%;
+		width: 6em;
 		height: 2px;
 		transform: translate(-50%);
 		background-color: $black2;
@@ -88,19 +103,19 @@ h3 {
 }
 
 h4 {
-	font-size: 2.22em;
+	font-size: 2.5em;
 }
 h5 {
-	font-size:1.67em;
+	font-size:2.5em;
 	display: inline-block;
 	position: relative;
 	&::before {
 		content: '';
 		position: absolute;
-		left: 50%;
-		bottom: -3px;
+		left: 2em;
+		bottom: -0.1em;
 		display: inline-block;
-		width: 80px;
+		width: 3em;
 		height: 2px;
 		transform: translate(-50%);
 		background-color: $white;
@@ -111,7 +126,7 @@ h5 {
 	display: inline-block;
 	margin: 0;
 	padding: 1.11em 1.67em;
-	font-size: 1.11em;
+	font-size: 1.2em;
 	color: $black1;
 	border: 1px solid $black4;
 	&:hover {
@@ -122,521 +137,647 @@ h5 {
 }
 
 header {
-	margin-bottom: 56vw;
+	width: 100vw;
+	height: calc((100vw*671)/376);
+	@include SP {height: calc((100vw*1081)/1920);};
 	position: relative;
-	color: $white;
-	display: flex;
 	.top-menu {
-		width: 100vw;
-		z-index: 90;
+		position: absolute;
+		top: 0;
+		left: 0;
 		background-color: $black3;
+		z-index: 10;
+	}
+	.main-visual-container {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 5;
+	}
+}
+
+.top-menu {
+	color: $white;
+	width: 100vw;
+	display: flex;
+	flex-direction: column;
+	@include PC {
+		flex-direction: row;
+		justify-content: space-between;
+	};
+	&-wrap {
+		height: 6vw;
+		margin: 0.5em 2em;
 		display: flex;
+		justify-content: space-between;
 		align-items: center;
-		justify-content: space-around;
-		@include Tab{justify-content: space-between;};
 		.top-logo {
-			@include Tab{margin-left: 2em;};
-			z-index: 98;
-			display: flex;
-			align-items: center;
+			width: 24vw;
 			img {
-				height: 4vw;
-			}
-		}
-		nav {
-			display: block;
-			@include Tab{
-				display:none;
-				width: 100vw;
-				height: 52vw;
-				position: absolute;
-				top: 4vw;
-				background-color: $black3;
-			};
-			z-index: 99;
-			ul {
-				display: flex;
-				justify-content: space-between;
-				@include Tab{
-					flex-direction: column;
-					height: 50vw;
-					justify-content: space-around;
-				};
-				align-items: center;
-				li a{
-					margin: 10px 0;
-					padding-right: 1vw;
-					font-size: 1.39em;
-					display: flex;
-					flex-direction: column;
-					align-items: center;
-					span {
-						font-size: 0.83em;
-					}
-				}
-			}
-		}
-		.menu-trigger, .menu-trigger span {
-			display: none;
-			@include Tab {display: inline-block;};
-			margin-right: 2em;
-			transition: all 4s;
-		}
-		.menu-trigger {
-			position: relative;
-			width: 2.78em;
-			height: 2.22em;
-			span {
-				position: absolute;
-				left: 0;
 				width: 100%;
-				height: 0.22em;
-				background-color: $white;
-				border-radius: 4px;
+				height: 100%;
 			}
 		}
-		.menu-trigger span:nth-of-type(1) {
+		.menu-btn {
+			display: block;
+			position: fixed;
+			z-index: 11;
+			top: 0.1em;
+			right: 0.1em;
+			background: inherit;
+			border: none;
+			cursor: pointer;
+			@include PC {display: none;};
+		}
+	}
+	nav, ul{
+		height: calc((100vw*671)/376 - 6vw);
+		@include SP {height: calc(((100vw*671)/376)*0.8 - 6vw);};
+		@include Tab {height: calc(((100vw*1081)/1920) - 6vw);};
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		align-items: center;
+		@include PC{
+			width: 60vw;
+			height: 6vw;
+			margin-right: 2em;
+			flex-direction: row;
+		};
+		.header-sns {
+			margin-right: 2em;
+			align-self: flex-end;
+			@include PC {display: none;};
+		}
+		a {
+			display: inline-block;
+			text-align: center;
+		}
+	}
+}
+
+#nav-trigger {
+	position: relative;
+	display: block;
+	width: 2.3em;
+	height: 1.8em;
+	@include PC {display: none;};
+	.bar {
+		cursor: pointer;
+		position: absolute;
+		left: 0;
+		width: 100%;
+		height: 2px;
+		border-radius: 2px;
+		background: $white;
+		transition: all .5s;
+		&:nth-child(1) {
 			top: 0;
 		}
-		.menu-trigger span:nth-of-type(2) {
-			top: 1.11em;
+		&:nth-child(2) {
+			top: 0.6em;
 		}
-		.menu-trigger span:nth-of-type(3) {
+		&:nth-child(3) {
 			bottom: 0;
 		}
 	}
-	.main-visual {
-		position: absolute;
-		top: 0;
-		left:0;
-		max-width: 100%;
-		width: 100vw;
-		height: 56vw;
-		z-index: 0;
-		background-color: $white;
-		background-repeat: no-repeat;
-		background-size: cover;
-		display: flex;
-		.main-image {
-			width:100vw;
-			height: 56vw;
-			position: relative;
-			top: 0;
-			left: 0;
-			img {
-				width: 100%;
-				height: 100%;
-				position: absolute;
-				top: 0;
-				left: 0;
-				opacity: 0.8;
+	&.is-active {
+		background: $black1;
+		.bar {
+			&:nth-child(1){
+				transform: translateY(0.7em) rotate(-45deg);
 			}
-		}
-		.main-logo {
-			width: 38vw;
-			position: absolute;
-			top: 25%;
-			left: 30%;
-			z-index: 10;
-			img {
-				width: 100%;
-				height: 100%;
+			&:nth-child(2){
+				opacity: 0;
+			}
+			&:nth-child(3){
+				transform: translateY(-0.7em) rotate(45deg);
 			}
 		}
 	}
 }
 
-.slide {
+#nav-contents {
+	display: none;
+	@include PC {display: block;};
+}
+
+.nav-open {
+	display: block!important;
 	transition: 3s ease-in-out;
 }
 
-#main-image-item1 {
-	opacity: 1;
-	z-index: 2;
-}
-#main-image-item2 {
-	opacity: 0;
-	z-index: 1;
-}
-#main-image-item3 {
-	opacity: 0;
-	z-index: 1;
-}
-#main-image-item4 {
-	opacity: 0;
-	z-index: 1;
-}
-#main-image-item5 {
-	opacity: 0;
-	z-index: 1;
-}
-
-
-main {
-	background-color: $white;
-	section:nth-child(even) {
-		background-color: $gray1;
+.main-visual {
+	width: 100vw;
+	height: calc((100vw*671)/376);
+	@include SP {height: calc((100vw*1081)/1920);};
+	position: relative;
+	overflow: hidden;
+	.main-image-sp {
+		display: none;
+		@include SP {display: block;};
+		width: 100vw;
+		img{
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	}
+	.main-image-xs {
+		@include SP {display: none;};
+		width: 100vw;
+		height: calc((100vw*671)/376);
+		overflow: hidden;
+		position: relative;
+		img{
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	}
+	.main-logo {
+		position: absolute;
+		top: 30%;
+		left: 0;
+		width: 100vw;
+		@include SP {
+			left: 25%;
+			width: 50vw;
+		}
+		img {
+			width: 100%;
+			height: 100%;
+		}
 	}
 }
-
 
 .about {
-	display: flex;
-	justify-content: space-around;
-	@include SP{
-		flex-direction: column;
-		align-items: center;
-	};
 	position: relative;
-	max-width: 100%;
-	overflow: hidden;
-	.back-color {
-		background-color: $gray1;
-		position: absolute;
-		top: 25%;
-		left: 25%;
-		width: 60vw;
-		height: 30vw;
-		z-index: 0;
-		@include SP{
-			margin-left: 20vw;
-			top: 0;
-			right: 0;
-			width: 60vw;
-			height: calc(55vw*3);
-		};
-	}
+	display: flex;
+	flex-direction: column;
+	@include Tab {
+		flex-direction: row;
+	};
 	.description {
+		width: 70vw;
+		height: 100vw;
+		z-index: 1;
+		@include SP {
+			width: 45vw;
+			height: auto;
+		};
+		margin: 0 auto;
 		display: flex;
 		flex-direction: column;
-		z-index: 1;
-		.about-section-title {
-			font-size: 2.78em;
-			opacity: 1;
-			@include SP{
-				font-size: 22px;
-				align-self: center;
-				margin: 30px 0;
-			};
+		justify-content: space-around;
+		align-items: center;
+		@include SP{align-items: flex-start;};
+		.dc-2 {
+			display: none;
+			@include SP{display: block;};
 		}
-		p {
-			display: block;
-			padding-top: 10px;
-			font-size: 1.94em;
-			@include SP{font-size: 15px;};
+		.dc-3 {
+			display: none;
+			@include SP{display: block;};
+		}
+		.dc-4 {
+			@include SP {display: none;};
 		}
 		.btn-wrap {
-			@include SP{align-self: flex-end;};
+			align-self: flex-end;
+		}
+	}
+	.img-wrap {
+		display: flex;
+		flex-direction: column;
+		width: 100vw;
+		z-index: 1;
+		.about-main-img {
+			order: 2;
+			align-self: flex-end;
+			width: 72%;
+			img {
+				width: 100%;
+				height: 100%;
+			}
+		}
+		.about-sub-img {
+			order: 1;
+			align-self: flex-start;
+			width: 57%;
+			img {
+				width: 100%;
+				height: 100%;
+			}
+		}
+		@include SP {
+			width: 100vw;
+			height: 60vw;
+			margin-top: 3em;
+			position: relative;
+			.about-main-img {
+				order: 1;
+				width: 70vw;
+				margin: 0 auto;
+				position: absolute;
+				top: 0;
+				right: 0;
+			}
+			.about-sub-img {
+				order: 2;
+				width: 50vw;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+			}
+		};
+		@include Tab {
+			width: 50vw;
+			.about-main-img {
+				width: 45vw;
+				top: 0;
+			}
+			.about-sub-img {
+				width: 25vw;
+				bottom: 10em;
+			}
+		};
+		@include PC {
+			position: static;
+			.about-main-img {
+				position: static;
+				margin-bottom: 3em;
+			}
+			.about-sub-img {
+				position: static;
+				width: 45vw;
+			}
+		}
+	}
+	.back-color {
+		background-color: $gray1;
+		width: 60vw;
+		height: 150vw;
+		position: absolute;
+		top: 2em;
+		right: 0;
+		z-index: 0;
+		@include SP {
+			width: 0;
+			height: 0;
+		};
+		@include Tab {
+			width: 60vw;
+			height: calc((60vw*2)/3);
+			top: 25%;
+			left: 25%;
+		};
+	}
+}
+
+section {
+	margin: 8.0em 0 3.0em;
+	display: flex;
+	flex-direction: column;
+	.section-title {
+		width: 100vw;
+		height: 10em;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	@include Tab {
+		.section-title {
+			justify-content: flex-start;
+			align-items: flex-start;
+			h3 {
+				margin-left: 2em;
+			}
+		}
+	}
+	article {
+		width: 70vw;
+		height: 105vw;
+		margin-left: 30vw;
+		padding-left: 5em;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		p {
+			width: 50vw;
+		}
+		.btn-wrap {
+			align-self: center;
 		}
 	}
 	.img-photo {
-		display: flex;
-		flex-direction: column;
-		justify-content: space-around;
-		align-items: center;
-		z-index: 1;
-		@include Tab {margin:10vw 0 20vw;};
-		position: relative;
+		width: 100vw;
 		@include SP {
-			width: 100vw;
-			justify-content: flex-start;
+			width: 85vw;
+			margin: 0 auto;
 		};
 		img {
-			width: 36vw;
-			padding-bottom: 20%;
-			@include SP{
-				padding: 0;
-			};
-		}
-		#about-main-img {
-			@include Tab {
-				width: 50vw;
-			};
-			@include SP{
-				order: 2;
-				align-self: flex-end;
-				width: 75vw;
-			};
-		}
-		#about-sub-img {
-			@include Tab {
-				width: 33vw;
-				position: absolute;
-				bottom: -10vw;
-				left: -10vw;
-			};
-			@include SP{
-				order: 1;
-				position: relative;
-				top: 0;
-				left: 0;
-				align-self: flex-start;
-				width: 57vw;
-			}
+			width: 100%;
+			height: 100%;
 		}
 	}
+
+	.photo-items {
+		width: 100vw;
+		@include SP {
+			width: 85vw;
+			margin: 0 auto;
+		};
+		@include Tab {margin: 0;};
+		align-self: flex-end;
+		display: flex;
+		img {
+			flex: 1 1 auto;
+			width: 0;
+		}
+	}
+	@include Tab {
+		.section-container {
+			width: 85vw;
+			height: calc((60vw*583)/898);
+			margin-bottom: 1em;
+			margin-left: auto;
+			display: flex;
+			justify-content: flex-end;
+			align-items: flex-end;
+			position: relative;
+			article {
+				width: 40vw;
+				padding: 1em;
+				opacity: 0.9;
+				height: auto;
+				position: absolute;
+				bottom: 0;
+				left: -30vw;
+				justify-content: flex-start;
+				p {
+					width: auto;
+					margin: 0.5em 0;
+				}
+				.btn-wrap {
+					align-self: flex-end;
+				}
+			}
+			.img-photo {
+				margin: 0;
+				width: 60vw;
+				height: auto;
+			}		
+		}
+		.section-container-reverse {
+			width: 85vw;
+			height: calc((60vw*583)/898);
+			margin-bottom: 1em;
+			margin-left: auto;
+			display: flex;
+			justify-content: flex-start;
+			align-items: flex-start;
+			position: relative;
+			article {
+				width: 40vw;
+				padding: 1em;
+				opacity: 0.9;
+				height: auto;
+				position: absolute;
+				top: 0;
+				right: 0;
+				justify-content: flex-start;
+				p {
+					width: auto;
+				}
+				.btn-wrap {
+					align-self: flex-end;
+				}
+			}
+			.img-photo {
+				margin: 0;
+				width: 60vw;
+				height: auto;
+			}		
+		}
+	};
 }
+
 
 .Contents {
-	.section-title {
-		display: inline-block;
-		position: relative;
-		max-width: 100%;
-		h2 {
-			writing-mode: vertical-lr;
-			display: inline-block;
-			position: absolute;
-			top:0;
-			left: 80px;
-			white-space: nowrap;
-		}
-		h3 {
-			display: inline-block;
-			position: absolute;
-			top: 0;
-			left: 80px;
-			white-space: nowrap;
-			z-index: 0;
-		}
-	}
-	.section-container {
-		margin: 5em 1.67em 0 12em;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-around;
-		align-items: center;
-		.section-container-wrap {
-			width: 85vw;
-			margin-bottom: 5%;
-			padding: 10% 0 5%;
-			display: flex;
-			align-items: flex-end;
-			flex-wrap: nowrap;
-			position: relative;
-			.description {
-				opacity: 0.9;
-				margin-left: 5%;
-				padding: 4vw;
-				width: 33vw;
-				z-index: 1;
-				background-color: $white;
-				.btn-wrap {
-					display: flex;
-					justify-content: flex-end;
-				}
-			}
-			.img-photo {
-				width: 44vw;
-				position: absolute;
-				right: 0;
-				bottom: 0;
-				right: 120px;
-				img {
-					width: 100%;
-					height: 100%;
-				}
-			}
-		}
-		.reverse-container-wrap {
-			width: 85%;
-			padding: 0 0 10% ;
-			display: flex;
-			align-items: flex-start;
-			justify-content: flex-end;
-			flex-wrap: nowrap;
-			position: relative;
-			overflow: hidden;
-			.description {
-				opacity: 0.9;
-				margin-left: 5%;
-				padding: 4vw;
-				width: 30vw;
-				z-index: 1;
-				background-color: $gray1;
-				.btn-wrap {
-					display: flex;
-					justify-content: flex-end;
-				}
-			}
-			.img-photo {
-				width: 44vw;
-				position: absolute;
-				top: 0;
-				left: 0;
-				img {
-					width: 100%;
-					height: 100%;
-				}
-			}
-		}
-		.photo-items {
-			width: 85%;
-			overflow: hidden;
-			margin-bottom: 5%;
-			display: flex;
-			flex-wrap: nowrap;
-			img {
-				flex: 1 1 auto;
-				width: 0;
-			}
-		}
+	background-color: $gray1;
+	.description {
+	background-color: $white;
 	}
 }
+
+.Contents:nth-child(odd) {
+	background-color: $white;
+	.description {
+		background-color: $gray1;
+	}
+}
+
+
 
 .lodge-title {
-		font-size: 7.78em;
+	position: relative;
+	img {
+		position: absolute;
+		top: 10em;
+		left: 5vw;
+		width: 25vw;
+		@include SP {
+			top: 1em;
+			left: 0;
+			width: 15vw;
+		};
+	}
 }
 .food-title {
-		font-size: 3.89em;
+	position: relative;
+	img {
+		position: absolute;
+		top: 10em;
+		left: 18vw;
+		width: 10vw;
+		@include SP {
+			top: 0.5em;
+			left: 0;
+			width: 9vw;
+		};
+	}
 }
 .interactive-title {
-		font-size: 5.56em;
+	position: relative;
+	img {
+		position: absolute;
+		top: 10em;
+		left: 10vw;
+		width: 20vw;
+		@include SP {
+			top: 1em;
+			left: 0;
+			width: 12vw;
+		};
+	}
 }
-
 
 .booking {
 	display: flex;
 	flex-direction: column;
+	justify-content: space-around;
 	align-items: center;
 	article {
-		margin: 6em 5.56em;
-		font-size:1.94em;
-		@include SP{
-			font-size: 15px;
-			font-weight: bold;
-		};
-		text-align: center;
-		line-height: 1.5;
+		justify-content: center;
+	}
+	.description {
+		margin:0 0 4em;
+		padding: 0;
+		height: 60vw;
+		p {
+			width: 72vw;
+			text-align: center;
+			margin: 0;
+		}
 	}
 	.booking-section {
-		display: flex;
-		justify-content: space-around;
-		section {
-			background-color: $gray2;
-			margin:50px;
-			@include SP{
-				justify-self: flex-end;
-				align-self: center;
-				width: 70vw;
-				margin:0 0 10vw 30vw;
-			};
-		}
-	}
-	.booking {
-		display: block;
-		position: relative;
-		@include SP {display: none;};
-		.booking-section-title {
-			position: absolute;
-			top: 10px;
-			left: -50px;
-		}
-		.booking-dc {
-			margin-top: 100px;
-			padding-bottom: 50px;
-			position: relative;
-			a {
-				position: absolute;
-				right: -20px;
-				bottom: 0;
-			}
-		}
+		@include SP {
+			display: flex;
+			flex-direction: column;
+		};
+		@include Tab {
+			flex-direction: row;
+			justify-content: space-around;
+		};
 	}
 	.booking-sp {
 		display: none;
-		@include SP{
-			display: block;
+		@include SP {
+			background-color: $gray2;
+			width: 60vw;
+			height: 25vh;
 			margin: 2em;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			position: relative;
 			.booking-section-title {
-				font-size: 25px;
-				width: 12em;
-				text-align: center;
+				position: absolute;
+				top: 0.5em;
+				left: -1.5em;
 			}
-			.booking-dc {
-				text-align: center;
-				font-size: 15px;
-				width: 18em;
-				display: flex;
-				flex-direction: column;
-				justify-content: space-between;
-				align-items: center;
-				a {
-					margin-bottom: 2em;
-				}
+			.booking-btn-wrap {
+				position: absolute;
+				bottom: 0.5em;
+				right: -1.5em;
 			}
 		};
+		@include Tab {
+			width: 40vw;
+			height: 28vh;
+			margin: 0 2em;
+		};
+	}
+	.booking-xs {
+		background-color: $gray2;
+		width: 70vw;
+		height: 80vw;
+		margin:0 0 0 30vw;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		align-items: center;
+		@include SP {display: none;}
+		.booking-section-title {
+			text-align: center;
+		}
+		p {
+			text-align: center;
+		}
 	}
 }
 
 footer {
-	display: flex;
-	flex-direction: column;
 	color: $white;
 	.up-footer {
-		padding-top: 2%;
 		display: flex;
-		justify-content: space-around;
+		flex-direction: column;
 		align-items: center;
-		background-color: $black2;
-		@include SP{
-			flex-direction: column;
-			justify-content: space-between;
-			background-color: $black1;
+		background-color: $black1;
+		font-size: 1.3em;
+		@include SP {
+			flex-direction: row;
+			justify-content: space-around;
+			width: 100vw;
+			font-size: 1em;
 		};
-		.logo {
-			width: 41vw;
-			@include Tab{width: 75vw;};
-			@include SP{width: 100vw;};
+		p {
+			word-wrap: break-word;
+	    overflow-wrap: break-word;
+		}
+		.footer-logo {
+			width: 70vw;
+			@include SP {
+				width: 25vw;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			};
 			img {
 				width: 100%;
 				height: 100%;
 			}
 		}
-		section {
-			width: 54vw;
-			.footer-description {
-				width: 38vw;
-				font-size: 1.28em;
-				@include SP{
-					width: 100vw;
-					font-size: 13px;
-				};
-			}
+		.footer-about {
+			display: none;
+			@include SP {
+				margin-top: 3em;
+				width: 25vw;
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-end;
+			};
 		}
 		.footer-contact {
 			display: flex;
 			flex-direction: column;
-			.section-title {
-				@include SP{display: none;};
+			@include SP {
+				margin-top: 3em;
+				width: 25vw;
+				justify-content: flex-end;
 			}
-			.footer-description{
-				@include SP{order: 2;};
+			.footer-section-title {
+				display: none;
+				@include SP {display: block;};
 			}
-		}
-		.footer-about {
-			@include SP{display: none;};
-		}
-		.sns-button {
-			font-size: 1.39em;
-			@include SP{
-				font-size: 20px;
+			.footer-description {
+				order: 2;
+				@include SP {order: 0;};
+			}
+			.sns-button {
 				order: 1;
 				display: flex;
 				justify-content: space-around;
-			};
+				align-items: center;
+			}
 		}
 	}
 	.low-footer {
-		background-color: $black1;
-		padding: 5px 0 5px 100px;
-		@include SP{background-color: $black2;};
-		.pc-copy {
-			display: inline-block;
-			@include SP{display: none;};
-		}
+		background-color: $black2;
 		.sp-copy {
 			display: none;
-			@include SP{display: inline-block;};
+			@include SP {display: inline;}
+		}
+		.xs-copy {
+			display: block;
+			margin: 0;
+			@include SP {display: none;}
 		}
 	}
 }
+
